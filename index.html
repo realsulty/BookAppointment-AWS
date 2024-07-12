@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <div>
+        <form id="dateForm">
+            <input type="date" name="date" id="date">
+            <button type="submit">Book</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('dateForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const date = document.getElementById('date').value;
+
+            fetch('https://idpxq46q97.execute-api.us-west-2.amazonaws.com/book/bookdate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': '0MjrCeqblh6j1lVMjXqw21AO06e99tpnaisFqNFG'
+                },
+                body: JSON.stringify({ date: date })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to submit date');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Date booked successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Failed to book date');
+            });
+        });
+    </script>
+</body>
+</html>
+
