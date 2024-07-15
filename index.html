@@ -2,34 +2,41 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>Book a Date</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1>Book a Appointment</h1>
     <div>
-        <form id="dateForm">
-            <input type="date" name="date" id="date">
+        <form onsubmit="submitDate(); return false;">
+            <input type="date" name="date" id="date"  required>
+            <select name="service" id="service-select"  required>
+                <option value="">--Please choose service--</option>
+                <option value="Airport">Airport</option>
+                <option value="Hotels">Hotels</option>
+                <option value="Car Ride">Car Ride</option>
+                <option value="Food Delivery">Food Delivery</option>
+                <option value="Haircut">Haircut</option>
+                <option value="Dentist">Dentist</option>
+              </select>
             <button type="submit">Book</button>
         </form>
     </div>
 
     <script>
-        document.getElementById('dateForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
+        function submitDate() {
             const date = document.getElementById('date').value;
+            const service = document.getElementById('service-select').value;
 
-            fetch('https://idpxq46q97.execute-api.us-west-2.amazonaws.com/book/bookdate', {
+            fetch('https://vcihnu92hi.execute-api.us-west-2.amazonaws.com/prod/book', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': '0MjrCeqblh6j1lVMjXqw21AO06e99tpnaisFqNFG'
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ date: date })
+                body: JSON.stringify({ serviceName: service, date: date })
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Failed to submit date');
+                    throw new Error('Network response was not ok ' + response.statusText);
                 }
                 return response.json();
             })
@@ -40,8 +47,7 @@
                 console.error('Error:', error);
                 alert('Failed to book date');
             });
-        });
+        }
     </script>
 </body>
 </html>
-
