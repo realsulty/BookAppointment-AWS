@@ -30,11 +30,11 @@ in the code bit add the code in lambda.py and change the necessary :
 1. in line 7 change the table name to match the name you created in DynamoDB
 2. change the SNS Topic ARN to the one you have made
 3. make sure the items match both the Partition key and sory key you created as well :
-> response = table.put_item(
+response = table.put_item(
             Item={
                 'serviceName': service_name, # Partition key is in single quotes
 
->                'date': date # Sort key is in single quotes 
+              'date': date # Sort key is in single quotes 
             }
         )
 
