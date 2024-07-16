@@ -49,6 +49,8 @@ in the code bit add the code in lambda.py and change the necessary :
 - for Access-Control-Allow-Origin 
 > use the wild card symbol:  * 
 
+click Save
+
 - now underneath /book chose POST and start with method response 
 ![image](pics/methodpage.png)
 EDIT if already exists or create response
