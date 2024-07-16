@@ -44,7 +44,7 @@ in the code bit add the code in lambda.py and change the necessary
 - for Access-Control-Allow-Origin 
 > use the wild card symbol:  * 
 
-- now underneath /book chose POST and start with method request 
+- now underneath /book chose POST and start with method response 
 ![image](pics/methodpage.png)
 EDIT if already exists or create response
 - HTTP status code : 200 
@@ -92,10 +92,10 @@ name: Content-Type
 - below click on add model in the request body tab 
 Content-Type: application/json
 click Save 
-now click on Deploy API after all changes have been added 
-- in the window chose create new stage, name the stage prod then click deploy 
+- now click on Deploy API after all changes have been added 
+- in the window from the dropdown menu chose new stage, name the stage prod then click deploy 
 
-in the new stages page click on the Plus sign ==+== to open the resourse you had until you get to POST 
+in the new stages page click on the Plus sign + to open the resourse you had until you get to POST 
 Copy and Invoke URL so you can add it to the html file in the fetch function 
 now you can go and create you s3 bucket and upload the index.html 
 
