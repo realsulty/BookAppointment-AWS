@@ -32,8 +32,9 @@ in the code bit add the code in lambda.py and change the necessary :
 3. make sure the items match both the Partition key and sory key you created as well :
 > response = table.put_item(
             Item={
-                'serviceName': service_name, # Partition key is in single quotes 
-                'date': date # Sort key is in single quotes 
+                'serviceName': service_name, # Partition key is in single quotes
+
+>                'date': date # Sort key is in single quotes 
             }
         )
 
