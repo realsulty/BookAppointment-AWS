@@ -117,6 +117,11 @@ then go to your dynamoDB table and check the newly inserted items in there
 After each submition you will recive an alert on the subscribed email with the appointment details 
 
 
+## Test object you can try in Lambda
+> {
+  "body": "{\"serviceName\": \"home\", \"date\": \"2060\"}"
+}
+
 ___
 ## Trouble shooting section 
 Upon Submiting the booked date a falied message appears on the screen 
