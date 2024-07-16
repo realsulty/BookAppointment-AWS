@@ -33,7 +33,6 @@ in the code bit add the code in lambda.py and change the necessary :
 response = table.put_item(
             Item={
                 'serviceName': service_name, # Partition key is in single quotes
-
               'date': date # Sort key is in single quotes 
             }
         )
