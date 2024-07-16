@@ -58,7 +58,7 @@ EDIT if already exists or create response
 - Add three Headers from the next page : 
 1. Access-Control-Allow-Origin
 2. Access-Control-Allow-Methods
-3. Access-Control-Allow-Origin
+3. Access-Control-Allow-Headers
 - Make sure there is a reponse body in the same page :
  Content type : application/json  
  Model : Empty 
