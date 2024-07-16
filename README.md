@@ -76,6 +76,7 @@ Template body :
     "body": "$util.escapeJavaScript($input.body).replaceAll("\\'", "'")"
 }
 
+### Make sure there two back slashes not one in the code above 
 click save 
 
 Next tab is integration request :
@@ -86,7 +87,7 @@ Template body :
 > { 
     "body": "$util.escapeJavaScript($input.body).replaceAll("\\'", "'")"
 }
-
+### Make sure there two back slashes not one in the code above 
 - next in the Method request tab click Edit
 scroll down to HTTP request headers and click add headers :
 name: Content-Type
@@ -108,9 +109,16 @@ create the bucket an UnBlock the publick access
 - Change the Bucket ARN to your Bucket ARN in the policy below
 Check the Policy bucket file you have from the git clone on you local and do the necessary changes to it 
 - save the changes 
-- Upload the index.html file 
+- before upaloding the html file you need to make couple changes :
+- 1. paste the link you got after deploying and creating the stage it should look like this : 
+https://randnomnumbers.execute-api.us-west-2.amazonaws.com/prod/book
+- paste this link in the fetch function inside the html
+- make sure the json body -in line 35 - matches the keys you created in you DynamoDB Table
+- save the changes
+- upload the index.html file after all the changes you done
 
-click on the object you just uploaded and loc
+  
+click on the object you just uploaded and locate the object hyperlink to open the hosted website
 After implementing all the steps you can access the website form thep provided link from S3 Properties tab,
 Try selecting a date and a service, check the alert message you prompted with 
 then go to your dynamoDB table and check the newly inserted items in there 
