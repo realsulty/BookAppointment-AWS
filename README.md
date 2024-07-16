@@ -101,24 +101,16 @@ Copy and Invoke URL so you can add it to the html file in the fetch function
 now you can go and create you s3 bucket and upload the index.html 
 
 ## 6. Create An S3 Bucket to Host the index.html file
-- Enable from Properties hosting a static website & Public Access 
+create the bucket an UnBlock the publick access 
+-  from Properties tab Enable hosting a static website ( will find this at the bottom of the page )
+-  fill the index input  with : index.html 
 - Edit the Bucket policy with the provided bucket file from the permissions tab :
 - Change the Bucket ARN to your Bucket ARN in the policy below
-> {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "YOURBUCKET::ARN/*"
-        }
-    ]
-}
+Check the Policy bucket file you have from the git clone on you local and do the necessary changes to it 
 - save the changes 
 - Upload the index.html file 
 
+click on the object you just uploaded and loc
 After implementing all the steps you can access the website form thep provided link from S3 Properties tab,
 Try selecting a date and a service, check the alert message you prompted with 
 then go to your dynamoDB table and check the newly inserted items in there 
