@@ -29,11 +29,11 @@ when creating the lambda function chose an existing role the one you just have c
 in the code bit add the code in lambda.py and change the necessary 
 
 ## 5. Create An API Gateway:
-- Create REASt API 
-- next create a Resource 
+- Create REAST API, name your api and click create 
+- next create a Resource from the middle of the page 
 - insert a name in the resource name & check the box for Enable CORS (Cross Origin Resource Sharing)
-- chose the book resource and click create method :
-1. method type: POST 
+- chose the book resource you just created and click create method :
+1.  chose method type: POST 
 2. chose lambda & Link the lambda function you created : Create method
 3. Now click on the /book resource again and click from the right on Enable CORS 
 -  Check both Gateway response boxes 
@@ -76,7 +76,7 @@ Template body :
     "body": "$util.escapeJavaScript($input.body).replaceAll("\\'", "'")"
 }
 
-### Make sure there two back slashes not one in the code above 
+### Make sure there two back slashes not one in the code above inside the parenthese after replaceAll
 click save 
 
 Next tab is integration request :
@@ -87,7 +87,7 @@ Template body :
 > { 
     "body": "$util.escapeJavaScript($input.body).replaceAll("\\'", "'")"
 }
-### Make sure there two back slashes not one in the code above 
+### Make sure there two back slashes not one in the code above inside the parenthese after replaceAll
 - next in the Method request tab click Edit
 scroll down to HTTP request headers and click add headers :
 name: Content-Type
@@ -105,20 +105,22 @@ now you can go and create you s3 bucket and upload the index.html
 create the bucket an UnBlock the publick access 
 -  from Properties tab Enable hosting a static website ( will find this at the bottom of the page )
 -  fill the index input  with : index.html 
-- Edit the Bucket policy with the provided bucket file from the permissions tab :
-- Change the Bucket ARN to your Bucket ARN in the policy below
+- in Permissions Tab go to Buckey policy and click Edit
+- copy and paste the Bucket policy with the provided s3-bucket-policy.md file
+- Change the Bucket ARN to your Bucket ARN in the policy 
 Check the Policy bucket file you have from the git clone on you local and do the necessary changes to it 
 - save the changes 
 - before upaloding the html file you need to make couple changes :
-- 1. paste the link you got after deploying and creating the stage it should look like this : 
+1. paste the link you got after deploying and creating the stage it should look like this : 
 https://randnomnumbers.execute-api.us-west-2.amazonaws.com/prod/book
 - paste this link in the fetch function inside the html
-- make sure the json body -in line 35 - matches the keys you created in you DynamoDB Table
+2. make sure the json body -in line 35 - matches the keys you created in you DynamoDB Table
 - save the changes
 - upload the index.html file after all the changes you done
 
   
-click on the object you just uploaded and locate the object hyperlink to open the hosted website
+click on the object you just uploaded and locate the Object URL to open the hosted website
+
 After implementing all the steps you can access the website form thep provided link from S3 Properties tab,
 Try selecting a date and a service, check the alert message you prompted with 
 then go to your dynamoDB table and check the newly inserted items in there 
