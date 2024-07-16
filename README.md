@@ -102,7 +102,8 @@ now you can go and create you s3 bucket and upload the index.html
 
 ## 6. Create An S3 Bucket to Host the index.html file
 - Enable from Properties hosting a static website & Public Access 
-- Edit the Bucket policy with the provided bucket file :
+- Edit the Bucket policy with the provided bucket file from the permissions tab :
+- Change the Bucket ARN to your Bucket ARN in the policy below
 > {
     "Version": "2012-10-17",
     "Statement": [
@@ -115,7 +116,7 @@ now you can go and create you s3 bucket and upload the index.html
         }
     ]
 }
-
+- save the changes 
 - Upload the index.html file 
 
 After implementing all the steps you can access the website form thep provided link from S3 Properties tab,
