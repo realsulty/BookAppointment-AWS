@@ -1,6 +1,6 @@
 # FlexBook Final Project  :brain: 
 Book an Appointment from a website that is hosted inside S3 Bucket, send the information to DynamoDB, you will get notified after each submission with service selected and the date  
-![image](pics/flexbook.drawio.png)
+![image](pics/diagram.png)
 
 You can start first with git clone to get a copy of the files on your local to be able to update the necessary code
 ## 1. Create DynamoDB Table :
