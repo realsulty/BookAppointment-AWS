@@ -4,9 +4,9 @@ Book an Appointment from a website that is hosted inside S3 Bucket, send the inf
 
 You can start first with git clone to get a copy of the files on your local to be able to update the necessary code
 ## 1. Create DynamoDB Table :
-- Partition key : is the first key id
-- Sort key : the date value
-Both Strings 
+- Partition key : Name this so it will be the main key for your table like : serviceName
+- Sort key : the date value fo the inserted items
+Both Strings of the values should be strings
 
 
 
