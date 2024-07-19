@@ -1,0 +1,104 @@
+/* Base styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('https://finalprojectbucketv3.s3.us-west-2.amazonaws.com/webimage.png') no-repeat center center fixed;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form container */
+div {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form elements */
+form {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 15px;
+}
+
+input[type="date"],
+select,
+button {
+    padding: 10px;
+    font-size: 1em;
+    width:40%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+/* Input and select hover and focus styles */
+input[type="date"]:hover,
+select:hover,
+button:hover,
+input[type="date"]:focus,
+select:focus,
+button:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button styles */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#email{
+    padding: 5px;
+   border-radius: 10px;
+border: 1px solid #ccc;
+}
+
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animation for the button on submit */
+button:active {
+    animation: pulse 0.3s ease;
+}

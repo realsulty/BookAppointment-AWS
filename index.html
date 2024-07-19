@@ -3,14 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <title>Book a Date</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for the dropdown effect */
+        .flexbox-section {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px; 
+            background-color: #fbfbfb08;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 252, 252, 0.151);
+            text-align: center;
+        } 
+        
+        .flexbox-section h2 {
+            text-align: center;
+        }
+        
+        .flexbox-section .dropdown {
+            margin: 10px 0;
+        }
+        
+        .dropdown-header {
+            background: #ce61b4;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            color: #fff;
+            /* max-width: 400px; */
+            border-radius: 5px;
+            /* background: #f4f4f4; */
+            margin-top: 5px;
+            align-items: center;
+
+        }
+        
+        .dropdown-content p {
+            margin: 0;
+        }
+    </style>
 </head>
-<body>
+<body><div class="container">
+    <div class="flexbox-section">
+        <h2>Why Use Flexbox</h2>
+        <div class="dropdown">
+            <div class="dropdown-header">Flexibility</div>
+            <div class="dropdown-content">
+                <p>One place to book all your Appointments with ease and free of charge</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-header">User Friendly</div>
+            <div class="dropdown-content">
+                <p>Simple process, pick a Date, choose a Service, insert your Email and your all Booked !</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-header">Fast Processing</div>
+            <div class="dropdown-content">
+                <p>Our Team will book you in the selected time slot instantly, you wont have to worry overbooking, you choose, we deilver ! </p>
+            </div>
+        </div>
+    </div>
+
     <h1>Book a Appointment</h1>
-    <div>
+    <div class="main-hero">
         <form onsubmit="submitDate(); return false;">
             <input type="date" name="date" id="date"  required>
             <select name="service" id="service-select"  required>
-                <option value="">--Please choose service--</option>
+                <option value="">--Please choose a service--</option>
                 <option value="Airport">Airport</option>
                 <option value="Hotels">Hotels</option>
                 <option value="Car Ride">Car Ride</option>
@@ -18,6 +88,7 @@
                 <option value="Haircut">Haircut</option>
                 <option value="Dentist">Dentist</option>
               </select>
+            <input type="email" name="email" id="email" placeholder="Your Email" required>
             <button type="submit">Book</button>
         </form>
     </div>
@@ -26,13 +97,14 @@
         function submitDate() {
             const date = document.getElementById('date').value;
             const service = document.getElementById('service-select').value;
+            const email = document.getElementById('email').value;
 
             fetch('https://vcihnu92hi.execute-api.us-west-2.amazonaws.com/prod/book', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ serviceName: service, date: date })
+                body: JSON.stringify({ serviceName: service, date: date, email:email })
             })
             .then(response => {
                 if (!response.ok) {
@@ -48,6 +120,16 @@
                 alert('Failed to book date');
             });
         }
+        document.querySelectorAll('.dropdown-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const isVisible = content.style.display === 'block';
+                document.querySelectorAll('.dropdown-content').forEach(item => item.style.display = 'none');
+                if (!isVisible) {
+                    content.style.display = 'block';
+                }
+            });
+        });
     </script>
 </body>
 </html>
