@@ -120,9 +120,10 @@ Check the Policy bucket file you have from the git clone on you local and do the
 1. paste the link you got after deploying and creating the stage it should look like this : 
 https://randnomnumbers.execute-api.us-west-2.amazonaws.com/prod/book
 - paste this link in the fetch function inside the html
-2. make sure the json body -in line 35 - matches the keys you created in you DynamoDB Table
+2. make sure the json body -in line 35 - matches the keys you created in you DynamoDB Table and add email object as well, in the same way the first two keys are inserted in the json object
 - save the changes
 - upload the index.html file after all the changes you done
+- upload the image so you can have the backbground image 
 
   
 click on the object you just uploaded and locate the Object URL to open the hosted website
@@ -135,7 +136,7 @@ After each submition you will recive an alert on the subscribed email with the a
 
 ## Test object you can try in Lambda
 > {
-  "body": "{\"serviceName\": \"home\", \"date\": \"2060\"}"
+  "body": "{\"serviceName\": \"Test Service\", \"date\": \"2023-06-29\", \"email\": \"test@example.com\"}"
 }
 
 ___
