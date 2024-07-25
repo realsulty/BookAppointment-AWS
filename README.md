@@ -113,6 +113,7 @@ create the bucket an UnBlock the publick access
 -  fill the index input  with : index.html 
 - in Permissions Tab go to Buckey policy and click Edit
 - copy and paste the Bucket policy with the provided s3-bucket-policy.md file
+- make sure there is an asterisk after the forwar slash /*     < ARN/* >  
 - Change the Bucket ARN to your Bucket ARN in the policy 
 Check the Policy bucket file you have from the git clone on you local and do the necessary changes to it 
 - save the changes 
@@ -123,7 +124,7 @@ https://randnomnumbers.execute-api.us-west-2.amazonaws.com/prod/book
 2. make sure the json body -in line 35 - matches the keys you created in you DynamoDB Table and add email object as well, in the same way the first two keys are inserted in the json object
 - save the changes
 - upload the index.html file after all the changes you done
-- upload the image so you can have the backbground image 
+- upload the picture from pics/webiamge.png so you can have the backbground image 
 
   
 click on the object you just uploaded and locate the Object URL to open the hosted website
